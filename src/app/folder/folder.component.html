@@ -1,37 +1,34 @@
 <mat-card>
-  <mat-card-title>Actualities</mat-card-title>
+  <mat-card-title>Library</mat-card-title>
   <mat-card-content>
     <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
 
-      <!-- Position Column -->
       <ng-container matColumnDef="Title">
         <th mat-header-cell *matHeaderCellDef> Title </th>
         <td mat-cell *matCellDef="let element"> {{element.title}} </td>
       </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="Info">
-        <th mat-header-cell *matHeaderCellDef> Info </th>
-        <td mat-cell *matCellDef="let element">
-          <a (click)="openBody(element.id)" mat-raised-button color="primary">info</a>
-        </td>
-      </ng-container>
-
-      <!-- Weight Column -->
       <ng-container matColumnDef="Date">
         <th mat-header-cell *matHeaderCellDef> Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="User">
+        <th mat-header-cell *matHeaderCellDef> User </th>
+        <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Documents">
+        <th mat-header-cell *matHeaderCellDef> Documents </th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="openDocuments(element.title)" mat-raised-button color="primary">Documents</a>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
     </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                  showFirstLastButtons
-                  aria-label="Select page of periodic elements">
-    </mat-paginator>
   </div>
 </mat-card-content>
 </mat-card>

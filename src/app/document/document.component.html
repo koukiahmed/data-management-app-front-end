@@ -1,1 +1,7 @@
-<p>document works!</p>
+<mat-card>
+  <div mat-subheader>Documents</div>
+    <mat-list-item *ngFor="let doc of docs">
+      <div matListItemTitle>{{doc.title}}</div>
+      <a mat-button color="primary">download</a>
+    </mat-list-item>
+</mat-card>

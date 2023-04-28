@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LinksService } from '../services/links.service';
+import { Link } from '../shared/link';
 
 @Component({
   selector: 'app-links',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private linkService: LinksService) { }
+
+  links: Link[];
 
   ngOnInit(): void {
+    this.linkService.getAllLinks().subscribe((data)=>{
+      this.links = data;
+    })
   }
 
 }

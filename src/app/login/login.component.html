@@ -1,2 +1,28 @@
-<p>login works!</p>
-<button><a routerLink="/home">home</a></button>
+<mat-card class="container">
+  <mat-card-content>
+      <form class="example-form" #loginForm="ngForm" (ngSubmit)="onLogin()">
+          <mat-card-title>
+            <h2>Login</h2>
+          </mat-card-title>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="enter your email" [(ngModel)]="loginObject.email" name="email" #email="ngModel" required>
+            <mat-error *ngIf="email.errors?.['required']">email is required</mat-error>
+          </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="enter your Password" type="password" [(ngModel)]="loginObject.password" name="password" #password="ngModel" required>
+              <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+            </mat-form-field>
+
+            <div>
+              <button mat-raised-button color="primary" style="margin: 10px;" type="submit" [disabled]="loginForm.form.invalid">Login</button>
+              <a routerLink="/register" mat-raised-button color="accent">New User?</a>
+            </div>
+        </form>
+  </mat-card-content>
+
+</mat-card>
+

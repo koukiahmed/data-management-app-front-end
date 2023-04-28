@@ -1,6 +1,7 @@
 export class Actuality {
+  id?: number;
   title: string;
   link: string;
-  date: Date;
   body: string;
+  date?: Date;
 }

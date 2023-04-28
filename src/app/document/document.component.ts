@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Document } from './../shared/document';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DocumentsService } from '../services/documents.service';
+import { Folder } from '../shared/folder';
+import { FoldersService } from '../services/folders.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-document',
@@ -7,9 +13,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private documentService: DocumentsService,private folderService: FoldersService, @Inject(MAT_DIALOG_DATA) public folderTitle: string) { }
+
+  docs: Document[];
 
   ngOnInit(): void {
+    this.getDocs();
+  }
+  getDocs(){
+    this.documentService.getAllDocuments()
+    .pipe(map(docs => docs.filter(doc => doc.folder === this.folderTitle)))
+    .subscribe((data)=>{
+      this.docs = data;
+    })
   }
 
+  // getDocument(id: number , title:string){
+  //   this.documentService.downloadDocument(id).subscribe((res)=>{
+  //   })
+  // }
 }

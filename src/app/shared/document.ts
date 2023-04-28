@@ -1,5 +1,7 @@
 export class Document {
+  id?: number;
   title: string;
-  path: string;
-  type: Date;
+  type?: string;
+  data?: any;
+  folder: string;
 }

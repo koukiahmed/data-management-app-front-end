@@ -10,8 +10,11 @@ export class LogoutComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  //if user click logout then redirect to login interface and delete session storage that have his role
+
   ngOnInit(): void {
     this.router.navigate(['login'])
+    sessionStorage.clear();
   }
 
 }

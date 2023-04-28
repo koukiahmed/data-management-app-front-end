@@ -8,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { ActualityComponent } from './actuality/actuality.component';
 import { LinksComponent } from './links/links.component';
-import { LibraryComponent } from './library/library.component';
 import { AdminModule } from './admin/admin.module';
 import { LogoutComponent } from './logout/logout.component';
 import { DocumentComponent } from './document/document.component';
@@ -16,12 +15,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ActualitiesService } from './services/actualities.service';
 import { DocumentsService } from './services/documents.service';
-import { LibrariesService } from './services/libraries.service';
 import { LinksService } from './services/links.service';
-import { LoginService } from './services/login.service';
-import { MailsService } from './services/mails.service';
 import { UsersService } from './services/users.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { FolderComponent } from './folder/folder.component';
+import { FoldersService } from './services/folders.service';
+import { EmailService } from './services/email.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { ActualityBodyComponent } from './actuality-body/actuality-body.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +34,11 @@ import { FormsModule } from '@angular/forms';
     ErrorComponent,
     ActualityComponent,
     LinksComponent,
-    LibraryComponent,
     LogoutComponent,
-    DocumentComponent
+    DocumentComponent,
+    RegisterComponent,
+    FolderComponent,
+    ActualityBodyComponent
   ],
   imports: [
     BrowserModule,
@@ -41,16 +46,17 @@ import { FormsModule } from '@angular/forms';
     AdminModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ActualitiesService,
     DocumentsService,
-    LibrariesService,
     LinksService,
-    LoginService,
-    MailsService,
-    UsersService
+    UsersService,
+    FoldersService,
+    EmailService
   ],
   bootstrap: [AppComponent]
 })
