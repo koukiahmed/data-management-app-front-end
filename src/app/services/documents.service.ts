@@ -18,12 +18,6 @@ export class DocumentsService {
     );
   }
 
-  downloadDocument(id: number){
-    return this.http.get(`api/documents/download/${id}`).pipe(
-      catchError(this.handleError)
-    );
-  }
-
   getAllDocuments(): Observable<Document[]>{
     return this.http.get<Document[]>('api/documents/get');
   }

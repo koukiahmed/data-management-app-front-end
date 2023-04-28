@@ -28,8 +28,9 @@ export class DocumentComponent implements OnInit {
     })
   }
 
-  // getDocument(id: number , title:string){
-  //   this.documentService.downloadDocument(id).subscribe((res)=>{
-  //   })
-  // }
+  getDocument(id: number){
+      let a = document.createElement('a');
+      a.href = `http://localhost:8080/api/documents/download/${id}`;
+      a.click();
+    }
 }

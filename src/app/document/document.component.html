@@ -2,6 +2,6 @@
   <div mat-subheader>Documents</div>
     <mat-list-item *ngFor="let doc of docs">
       <div matListItemTitle>{{doc.title}}</div>
-      <a mat-button color="primary">download</a>
+      <a mat-button color="primary" (click)="getDocument(doc.id)">download</a>
     </mat-list-item>
 </mat-card>
