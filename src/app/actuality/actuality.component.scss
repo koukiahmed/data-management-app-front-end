@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 table {
   width: 100%;
+}
+
+.container{
+  width: 900px;
+  margin:10px;
+  word-break: break-word
+}
+
+h2{
+  margin-left: 10px;
 }

@@ -10,6 +10,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon'
 
 //module that have all angular material design
 
@@ -23,7 +24,8 @@ const MaterialComponents = [
         MatDialogModule,
         MatSelectModule,
         MatCheckboxModule,
-        MatListModule
+        MatListModule,
+        MatIconModule
 ];
 
 @NgModule({

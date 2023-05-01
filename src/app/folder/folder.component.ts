@@ -24,6 +24,9 @@ export class FolderComponent implements OnInit {
     })
   }
 
+  tableColumns: string[] = ['Title', 'Date', 'User','Documents'];
+
+  //when click on button folder open popup for display his documents that have folder name in data
   openDocuments(folderTitle:string){
     this.docs.open(DocumentComponent,{
       width:'50%',
@@ -32,7 +35,5 @@ export class FolderComponent implements OnInit {
     })
 
   }
-
-  tableColumns: string[] = ['Title', 'Date', 'User','Documents'];
 
 }

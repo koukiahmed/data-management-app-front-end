@@ -1,10 +1,14 @@
-<mat-card>
-  <mat-card-title>Links</mat-card-title>
-  <mat-card-content>
-    <mat-nav-list>
+ <div class="container">
+  <h2><mat-icon>list_alt</mat-icon> Links</h2>
+    <mat-nav-list >
     <mat-list-item *ngFor="let link of links">
-      <img matListIcon src="../../assets/attijariBank.png" alt="">
-      <a matListItemTitle [href]=link.path target="_blank">{{ link.title }}</a>
-    </mat-list-item></mat-nav-list>
-  </mat-card-content>
-</mat-card>
+      <mat-icon>rss_feed</mat-icon>
+      <a matListItemTitle [href]=link.path target="_blank">{{link.title }}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>
+
+
+
+
+

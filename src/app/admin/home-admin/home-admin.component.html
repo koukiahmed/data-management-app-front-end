@@ -1,7 +1,17 @@
-<button><a routerLink="/home">User home</a></button>
-<app-actuality-admin></app-actuality-admin>
-<app-document-admin></app-document-admin>
-<app-links-admin></app-links-admin>
-<app-profile></app-profile>
-<app-folder-admin></app-folder-admin>
-<app-email></app-email>
+<div class="header">
+  <img src="../../assets/logo.png" alt="">
+  <h1>ATTIJARI LEASING PLATFORME</h1>
+  <div class="button">
+    <button mat-flat-button color="accent"><a routerLink="/home">User home</a></button>
+  </div>
+</div>
+
+<div class="body">
+  <app-users-admin class="card"></app-users-admin>
+  <app-actuality-admin class="card"></app-actuality-admin>
+  <app-links-admin class="card"></app-links-admin>
+  <app-document-admin class="card"></app-document-admin>
+  <app-folder-admin class="card"></app-folder-admin>
+  <app-email class="card"></app-email>
+</div>
+

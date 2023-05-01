@@ -13,10 +13,11 @@ export class LinksComponent implements OnInit {
 
   links: Link[];
 
+
+  //function for get all links in database
   ngOnInit(): void {
     this.linkService.getAllLinks().subscribe((data)=>{
       this.links = data;
     })
   }
-
 }

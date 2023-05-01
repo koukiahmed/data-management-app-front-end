@@ -1,16 +1,15 @@
-<mat-card>
-  <mat-card-title>Actualities</mat-card-title>
-  <mat-card-content>
-    <div class="mat-elevation-z8">
+<h2><mat-icon>domain</mat-icon> Actualities</h2>
+    <div class="mat-elevation-z8 container">
     <table mat-table [dataSource]="dataSource">
 
-      <!-- Position Column -->
       <ng-container matColumnDef="Title">
         <th mat-header-cell *matHeaderCellDef> Title </th>
-        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let element" class="td">
+          <mat-icon>notifications_none</mat-icon>
+          {{element.title}}
+        </td>
 
-      <!-- Name Column -->
+      </ng-container>
       <ng-container matColumnDef="Info">
         <th mat-header-cell *matHeaderCellDef> Info </th>
         <td mat-cell *matCellDef="let element">
@@ -18,7 +17,6 @@
         </td>
       </ng-container>
 
-      <!-- Weight Column -->
       <ng-container matColumnDef="Date">
         <th mat-header-cell *matHeaderCellDef> Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </td>
@@ -33,5 +31,4 @@
                   aria-label="Select page of periodic elements">
     </mat-paginator>
   </div>
-</mat-card-content>
-</mat-card>
+

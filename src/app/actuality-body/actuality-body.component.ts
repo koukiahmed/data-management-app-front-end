@@ -16,10 +16,13 @@ export class ActualityBodyComponent implements OnInit {
   body:string;
   link:string
 
+
+  //get actuality then display body and link in popup
   ngOnInit(): void {
     this.actualityService.getOneActuality(this.data).subscribe((result)=>{
       this.actuality=result;
       this.body=this.actuality.body;
+      this.link=this.actuality.link;
     }
     )
   }

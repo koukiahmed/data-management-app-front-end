@@ -18,8 +18,6 @@ export class HomeComponent implements OnInit {
     this.disableBrowserClickBack()
   }
 
-
-
   //to disable click back browser if user want to go back and not click logout button for clear session
   //storage that have his role
   disableBrowserClickBack(): void{

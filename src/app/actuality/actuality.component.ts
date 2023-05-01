@@ -29,6 +29,7 @@ export class ActualityComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     })
   }
+
   tableColumns: string[] = ['Title', 'Info', 'Date'];
 
   //function for sorting actualities by id for show to user last actuality added
@@ -37,6 +38,7 @@ export class ActualityComponent implements OnInit {
     return this.newArray;
   }
 
+  //when click in info button open popup for display actuality info to user
   openBody(id: number){
     this.body.open(ActualityBodyComponent,{
       width:'50%',
