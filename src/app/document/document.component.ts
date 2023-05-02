@@ -5,6 +5,7 @@ import { DocumentsService } from '../services/documents.service';
 import { FoldersService } from '../services/folders.service';
 import { map } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-document',
@@ -14,7 +15,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class DocumentComponent implements OnInit {
 
   constructor(private documentService: DocumentsService,private folderService: FoldersService, @Inject(MAT_DIALOG_DATA) public folderTitle: string) { }
-  private apiUrl = 'http://localhost:8080/api';
+
+  private apiUrl = environment.apiUrl;
 
   docs: Document[];
   dataSource:any;
@@ -23,7 +25,7 @@ export class DocumentComponent implements OnInit {
     this.getDocs();
   }
 
-  tableColumns: string[] = ['Title', 'Source'];
+  tableColumns: string[] = ['Title','Date','Source',];
 
   //function for get all documents in database then filter documents that have that folder title then display
   //documents in popup

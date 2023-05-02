@@ -4,6 +4,7 @@ import { User } from '../shared/user';
 import { Login } from '../shared/login';
 import { Response } from '../shared/response';
 import { Observable, catchError, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,40 +13,42 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+  private apiUrl = environment.apiUrl;
+
   //all function have catch error handler with message to send it to component if data not ok
 
   loginUser(login: Login): Observable<Response>{
-    return this.http.post<Response>('api/users/login', login).pipe(
+    return this.http.post<Response>(`${this.apiUrl}/users/login`, login).pipe(
       catchError(this.handleError)
     );
   }
 
   addUser(user: User): Observable<Response>{
-    return this.http.post<Response>('api/users/save', user).pipe(
+    return this.http.post<Response>(`${this.apiUrl}/users/save`, user).pipe(
       catchError(this.handleError)
     );
   }
 
   getAllUsers(): Observable<User[]>{
-    return this.http.get<User[]>('api/users/get').pipe(
+    return this.http.get<User[]>(`${this.apiUrl}/users/get`).pipe(
       catchError(this.handleError)
     );
   }
 
   getOneUser(id: number): Observable<User>{
-    return this.http.get<User>(`api/users/get/${id}`).pipe(
+    return this.http.get<User>(`${this.apiUrl}/users/get/${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
   updateUser(user: User): Observable<Response>{
-    return this.http.put<Response>(`api/users/update/${user.id}`, user).pipe(
+    return this.http.put<Response>(`${this.apiUrl}/users/update/${user.id}`, user).pipe(
       catchError(this.handleError)
     );
   }
 
   deleteUser(id: number): Observable<Response>{
-    return this.http.delete<Response>(`api/users/delete/${id}`).pipe(
+    return this.http.delete<Response>(`${this.apiUrl}/users/delete/${id}`).pipe(
       catchError(this.handleError)
     );
   }
