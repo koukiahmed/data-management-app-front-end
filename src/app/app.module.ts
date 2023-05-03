@@ -17,13 +17,14 @@ import { ActualitiesService } from './services/actualities.service';
 import { DocumentsService } from './services/documents.service';
 import { LinksService } from './services/links.service';
 import { UsersService } from './services/users.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { FolderComponent } from './folder/folder.component';
 import { FoldersService } from './services/folders.service';
 import { EmailService } from './services/email.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import * as alertify from 'alertifyjs'
 import { ActualityBodyComponent } from './actuality-body/actuality-body.component';
 
 @NgModule({

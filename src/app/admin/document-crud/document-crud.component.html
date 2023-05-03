@@ -1,0 +1,33 @@
+<form class="example-form">
+  <mat-card>
+    <mat-card-content>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Id</mat-label>
+        <input matInput disabled>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Folder Name</mat-label>
+        <input matInput placeholder="Folder Name">
+      </mat-form-field>
+
+      <div class="form-group">
+        <div>
+          <input type="file" name="file" class="form-control" />
+        </div>
+      </div>
+
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div class="example-button-row" style="margin: 15px">
+      <button mat-raised-button color="primary">Save</button> | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
+    </div>
+  </mat-card-footer>
+
+</mat-card>
+</form>
+
+
+

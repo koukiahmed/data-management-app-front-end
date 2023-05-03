@@ -4,6 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from 'src/app/services/users.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { UserCrudComponent } from '../user-crud/user-crud.component';
+import * as alertify from 'alertifyjs'
 
 @Component({
   selector: 'app-users-admin',
@@ -12,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsersAdminComponent implements OnInit {
 
-  constructor(private userService: UsersService, private toastr: ToastrService) { }
+  constructor(private userService: UsersService, private toastr: ToastrService, private popup: MatDialog) { }
 
   users: User[];
   dataSource:any;
@@ -38,5 +41,33 @@ export class UsersAdminComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  openPopup(id: any){
+    const _popup = this.popup.open(UserCrudComponent,{
+      width: '500px',
+      data:{
+        id:id
+      }
+    });
+
+    _popup.afterClosed().subscribe(r => {
+      this.getAll();
+    });
+
+  }
+
+  EditUser(id: any) {
+    this.openPopup(id);
+  }
+
+  RemoveUser(id: number){
+    alertify.confirm("Remove User", "do you want remove this user ?", () =>{
+      this.userService.deleteUser(id).subscribe((res=>{
+        this.toastr.success(res.message);
+        this.getAll();
+      }));
+    }, function() {
+
+    })
+  }
 
 }

@@ -14,12 +14,18 @@ import { UsersAdminComponent } from './users-admin/users-admin.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import * as alertify from 'alertifyjs'
 import { ActualitiesService } from '../services/actualities.service';
 import { DocumentsService } from '../services/documents.service';
 import { LinksService } from '../services/links.service';
 import { UsersService } from '../services/users.service';
 import { FoldersService } from '../services/folders.service';
 import { EmailService } from '../services/email.service';
+import { UserCrudComponent } from './user-crud/user-crud.component';
+import { ActualityCrudComponent } from './actuality-crud/actuality-crud.component';
+import { DocumentCrudComponent } from './document-crud/document-crud.component';
+import { FolderCrudComponent } from './folder-crud/folder-crud.component';
+import { LinksCrudComponent } from './links-crud/links-crud.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +37,11 @@ import { EmailService } from '../services/email.service';
     UsersAdminComponent,
     FolderAdminComponent,
     EmailComponent,
+    UserCrudComponent,
+    ActualityCrudComponent,
+    DocumentCrudComponent,
+    FolderCrudComponent,
+    LinksCrudComponent,
 
   ],
   imports: [

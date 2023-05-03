@@ -21,7 +21,6 @@ export class EmailComponent implements OnInit {
   emailObject: Email = {from: this.emailAdmin, to: '', subject: '', body: ''};
   spinner: boolean = true;
 
-
   ngOnInit(): void {
     this.getAllUsers();
   }
@@ -35,6 +34,7 @@ export class EmailComponent implements OnInit {
   sendEmail(){
     this.spinner = false;
     this.emailService.sendEmail(this.emailObject).subscribe((res)=>{
+      console.log(this.emailObject);
       this.toastr.success(res.message);
       this.spinner = true;
     })

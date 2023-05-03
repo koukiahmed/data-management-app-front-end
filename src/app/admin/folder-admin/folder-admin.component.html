@@ -6,7 +6,7 @@
     <div class="header">
 
       <div class="add">
-        <a mat-raised-button color="primary">Add</a>
+        <a mat-raised-button (click)="openPopup('')" color="primary">Add</a>
     </div>
 
     <mat-form-field class="filter">
@@ -42,8 +42,8 @@
             <th mat-header-cell *matHeaderCellDef> Actions</th>
             <td mat-cell *matCellDef="let element">
                 <div>
-                    <a mat-raised-button color="accent">Edit</a> |
-                    <a mat-raised-button  color="warn">Delete</a>
+                    <a mat-raised-button (click)="openPopup(element.id)" color="accent">Edit</a> |
+                    <a mat-raised-button (click)="RemoveFolder(element.id)" color="warn">Delete</a>
                 </div>
             </td>
           </ng-container>

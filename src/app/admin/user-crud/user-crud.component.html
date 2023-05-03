@@ -1,0 +1,39 @@
+<form class="example-form">
+  <mat-card>
+    <mat-card-content>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Id</mat-label>
+        <input matInput disabled>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name">
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Role</mat-label>
+      <input matInput placeholder="Role">
+    </mat-form-field>
+
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div class="example-button-row" style="margin: 15px">
+      <button mat-raised-button color="primary">Save</button> | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
+    </div>
+  </mat-card-footer>
+
+</mat-card>
+</form>

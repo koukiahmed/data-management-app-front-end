@@ -28,6 +28,18 @@ export class FoldersService {
     );
   }
 
+  updateFolder(folder: Folder): Observable<Response>{
+    return this.http.put<Response>(`${this.apiUrl}/folders/update/${folder.id}`, folder).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  deleteFolder(id: number): Observable<Response>{
+    return this.http.delete<Response>(`${this.apiUrl}/folders/delete/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     return throwError(error.error);
   }
