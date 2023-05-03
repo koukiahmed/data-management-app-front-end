@@ -2,19 +2,31 @@
   box-sizing: border-box;
 }
 
-.card h1{
-  text-align: center;
-  position: relative;
-  top: 10px
+.container{
+  margin:20px;
+  margin-top: 50px;
 }
 
-
-.button{
-  text-align: center;
-  position: relative;
-  top: 50px;
+.container h2{
+  margin-left: 10px;
 }
 
-.button a{
+table {
+  width: 100%;
+}
+
+.header{
+  display: flex;
+  background-color: #FFFFFF;
+}
+
+.add{
   margin: 10px;
 }
+
+.filter{
+  margin: 10px;
+}
+
+
+

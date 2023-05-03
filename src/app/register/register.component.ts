@@ -11,7 +11,7 @@ import { User } from '../shared/user';
 })
 export class RegisterComponent {
 
-  constructor(private user: UsersService, private router: Router, private toastr: ToastrService) {}
+  constructor(private user: UsersService, private toastr: ToastrService) {}
 
   registerObject: User = {name: '', email: '', password: '', role: 'user'};
 

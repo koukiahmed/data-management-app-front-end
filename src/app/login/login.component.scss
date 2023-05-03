@@ -1,3 +1,7 @@
+.login{
+  background-color: #f9f9f9;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,6 +27,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  bottom:10px;
+  background-color: #f9f9f9;
 }
 
 .container .form {
@@ -45,10 +52,15 @@ img{
 
 .header{
   display: flex;
+  background-color: #f9f9f9;
 }
 
 h1{
   position: relative;
   left: 30%;
   margin-top: 30px;
+  font-family: times new roman;
+  font-size: 30px;
+  font-weight:bold;
+  color:rgb(128, 65, 173)
 }

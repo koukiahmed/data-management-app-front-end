@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
               return true;
             } else {
               this.router.navigate(['home']);
-                this.toastr.warning('You dont have access.')
+                this.toastr.warning("You don't have access.")
               return false;
             }
           }else{

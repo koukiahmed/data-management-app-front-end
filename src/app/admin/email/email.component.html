@@ -1,6 +1,48 @@
-<div class="card">
-  <h1>Email</h1>
-  <div class="button">
-    <a mat-raised-button color="primary">Send</a>
+<div class="container">
+  <h2><mat-icon> mail_outline</mat-icon> Email</h2>
+
+  <div class="card">
+
+    <div class="form">
+      <form class="example-form" #emailForm="ngForm" (ngSubmit)="sendEmail()">
+
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>From</mat-label>
+            <input matInput type="email" placeholder="Your email" [(ngModel)]="emailObject.from" name="from" #from="ngModel" required>
+            <mat-error *ngIf="from.errors?.['required']">Email is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>To</mat-label>
+          <mat-select [(ngModel)]="emailObject.to" name="to" #to="ngModel" required>
+            <mat-option>-- None --</mat-option>
+            <mat-option *ngFor="let element of users" [value]="element.email">{{element.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="to.errors?.['required']">Email is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Subject</mat-label>
+            <input matInput placeholder="Subject" type="text" [(ngModel)]="emailObject.subject" #subject="ngModel" name="subject" required>
+            <mat-error *ngIf="subject.errors?.['required']">subject is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Body</mat-label>
+            <textarea matInput placeholder="Body" type="text" [(ngModel)]="emailObject.body" #body="ngModel" name="body" required></textarea>
+            <mat-error *ngIf="body.errors?.['required']">Body is required</mat-error>
+          </mat-form-field>
+
+          <div class="button">
+            <button mat-raised-button color="primary" type="submit" [disabled]="emailForm.form.invalid">Send</button>
+          </div>
+
+      </form>
+
+    </div>
+
   </div>
-</div>
+
+  </div>
+  <br>
+  <br>

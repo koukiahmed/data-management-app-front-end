@@ -1,3 +1,7 @@
+.home{
+  background-color: #f9f9f9;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -18,17 +22,21 @@
 
 .body{
   display: flex;
-}
-
-.left{
-  position: relative;
-  top: 50px;
-  margin-left: 40px;
+  background-color: #f9f9f9;
 }
 
 .right{
   position: relative;
+  top: 50px;
+  margin-left: 40px;
+  background-color: #f9f9f9;
+  height: 800px;
+}
+
+.left{
+  position: relative;
   top: 70px;
+  background-color: #f9f9f9;
 }
 
 img{
@@ -37,14 +45,18 @@ img{
   margin: 10px;
 }
 
-
 .header{
   display: flex;
+  background-color: #f9f9f9;
 }
 
 h1{
   position: relative;
   left: 30%;
   margin-top: 30px;
+  font-family: times new roman;
+  font-size: 30px;
+  font-weight:bold;
+  color:rgb(128, 65, 173)
 }
 

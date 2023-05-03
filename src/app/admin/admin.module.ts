@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
@@ -9,21 +10,16 @@ import { LinksAdminComponent } from './links-admin/links-admin.component';
 import { FolderAdminComponent } from './folder-admin/folder-admin.component';
 import { EmailComponent } from './email/email.component';
 import { MaterialModule } from '../material/material.module';
-import { ActualityAddComponent } from './actuality-add/actuality-add.component';
-import { ActualityUpdateComponent } from './actuality-update/actuality-update.component';
-import { ActualityDeleteComponent } from './actuality-delete/actuality-delete.component';
-import { DocumentAddComponent } from './document-add/document-add.component';
-import { DocumentUpdateComponent } from './document-update/document-update.component';
-import { DocumentDeleteComponent } from './document-delete/document-delete.component';
-import { EmailSendComponent } from './email-send/email-send.component';
-import { FolderAddComponent } from './folder-add/folder-add.component';
-import { LinkAddComponent } from './link-add/link-add.component';
-import { LinkUpdateComponent } from './link-update/link-update.component';
-import { LinkDeleteComponent } from './link-delete/link-delete.component';
 import { UsersAdminComponent } from './users-admin/users-admin.component';
-import { UserAddComponent } from './user-add/user-add.component';
-import { UserUpdateComponent } from './user-update/user-update.component';
-import { UserDeleteComponent } from './user-delete/user-delete.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ActualitiesService } from '../services/actualities.service';
+import { DocumentsService } from '../services/documents.service';
+import { LinksService } from '../services/links.service';
+import { UsersService } from '../services/users.service';
+import { FoldersService } from '../services/folders.service';
+import { EmailService } from '../services/email.service';
 
 @NgModule({
   declarations: [
@@ -35,27 +31,25 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
     UsersAdminComponent,
     FolderAdminComponent,
     EmailComponent,
-    ActualityAddComponent,
-    ActualityUpdateComponent,
-    ActualityDeleteComponent,
-    DocumentAddComponent,
-    DocumentUpdateComponent,
-    DocumentDeleteComponent,
-    EmailSendComponent,
-    FolderAddComponent,
-    LinkAddComponent,
-    LinkUpdateComponent,
-    LinkDeleteComponent,
-    UserAddComponent,
-    UserUpdateComponent,
-    UserDeleteComponent,
 
   ],
   imports: [
     CommonModule,
     RouterModule,
+    BrowserAnimationsModule,
     MaterialModule,
-  ]
+    HttpClientModule,
+    FormsModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [
+    ActualitiesService,
+    DocumentsService,
+    LinksService,
+    UsersService,
+    FoldersService,
+    EmailService
+  ],
 })
 
 export class AdminModule { }
