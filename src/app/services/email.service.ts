@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, delay } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Email } from '../shared/email';
@@ -15,6 +15,6 @@ export class EmailService {
   private apiUrl = environment.apiUrl;
 
   sendEmail(email: Email): Observable<Response>{
-    return this.http.post<Response>(`${this.apiUrl}/email/send`,email);
+    return this.http.post<Response>(`${this.apiUrl}/email/send`,email).pipe(delay(1000));
   }
 }

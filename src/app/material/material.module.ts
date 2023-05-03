@@ -10,7 +10,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //module that have all angular material design
 
@@ -25,7 +26,8 @@ const MaterialComponents = [
         MatSelectModule,
         MatCheckboxModule,
         MatListModule,
-        MatIconModule
+        MatIconModule,
+        MatProgressSpinnerModule
 ];
 
 @NgModule({

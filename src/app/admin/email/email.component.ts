@@ -19,6 +19,7 @@ export class EmailComponent implements OnInit {
   emailAdmin = sessionStorage.getItem('email');
 
   emailObject: Email = {from: this.emailAdmin, to: '', subject: '', body: ''};
+  spinner: boolean = true;
 
 
   ngOnInit(): void {
@@ -32,8 +33,10 @@ export class EmailComponent implements OnInit {
   }
 
   sendEmail(){
+    this.spinner = false;
     this.emailService.sendEmail(this.emailObject).subscribe((res)=>{
       this.toastr.success(res.message);
+      this.spinner = true;
     })
   }
 }

@@ -18,7 +18,7 @@ export class UsersAdminComponent implements OnInit {
   dataSource:any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  tableColumns: string[] = ['Id', 'Name', 'Email', 'Password', 'Role','Actions'];
+  tableColumns: string[] = ['Id', 'Name', 'Email', 'Role','Actions'];
 
   ngOnInit(): void {
     this.getAll();
