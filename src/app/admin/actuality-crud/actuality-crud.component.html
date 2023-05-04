@@ -1,32 +1,36 @@
-<form class="example-form">
+<form class="example-form" #actualityForm="ngForm" (ngSubmit)="saveActuality(actualityForm.value)">
   <mat-card>
     <mat-card-content>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Id</mat-label>
-        <input matInput disabled >
+        <input matInput name="id" #id="ngModel" type="number" ngModel readonly>
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Title">
+        <input matInput placeholder="Title" type="text" name="title" #title="ngModel" required ngModel maxlength="80">
+        <mat-error *ngIf="title.errors?.['required']">Title is required</mat-error>
       </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Link</mat-label>
-      <input matInput placeholder="Link" >
+      <input matInput placeholder="Link" type="text" name="link" #link="ngModel" required ngModel>
+      <mat-error *ngIf="link.errors?.['required']">Link is required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Body</mat-label>
-      <input matInput placeholder="Body" >
+      <input matInput placeholder="Body" type="text" name="body" #body="ngModel" required ngModel>
+      <mat-error *ngIf="body.errors?.['required']">Body is required</mat-error>
     </mat-form-field>
 
   </mat-card-content>
 
   <mat-card-footer>
     <div class="example-button-row" style="margin: 15px">
-      <button mat-raised-button color="primary">Save</button> | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
+      <button mat-raised-button color="primary" type="submit" [disabled]="actualityForm.form.invalid">Save</button>
+      | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
     </div>
   </mat-card-footer>
 

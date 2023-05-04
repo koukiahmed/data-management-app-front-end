@@ -1,27 +1,30 @@
-<form class="example-form">
+<form class="example-form" #folderForm="ngForm" (ngSubmit)="saveFolder(folderForm.value)">
   <mat-card>
     <mat-card-content>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Id</mat-label>
-        <input matInput disabled>
+        <input matInput name="id" #id="ngModel" type="number" ngModel readonly>
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Title">
+        <input matInput placeholder="Title" type="text" name="title" #title="ngModel" required ngModel maxlength="45">
+        <mat-error *ngIf="title.errors?.['required']">Title is required</mat-error>
       </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>User Name</mat-label>
-      <input matInput placeholder="User Name" >
+      <input matInput placeholder="User Name" type="text" name="UserName" #UserName="ngModel" required ngModel>
+      <mat-error *ngIf="UserName.errors?.['required']">User Name is required</mat-error>
     </mat-form-field>
 
   </mat-card-content>
 
   <mat-card-footer>
     <div class="example-button-row" style="margin: 15px">
-      <button mat-raised-button color="primary">Save</button> | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
+      <button mat-raised-button color="primary" type="submit" [disabled]="folderForm.form.invalid">Save</button>
+      | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
     </div>
   </mat-card-footer>
 
