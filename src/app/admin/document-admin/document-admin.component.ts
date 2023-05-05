@@ -6,7 +6,9 @@ import { DocumentsService } from 'src/app/services/documents.service';
 import { Document } from 'src/app/shared/document';
 import { MatDialog } from '@angular/material/dialog';
 import * as alertify from 'alertifyjs';
-import { DocumentCrudComponent } from '../document-crud/document-crud.component';
+import { DocumentAddComponent } from '../document-add/document-add.component';
+import { DocumentUpdateComponent } from '../document-update/document-update.component';
+
 
 @Component({
   selector: 'app-document-admin',
@@ -18,6 +20,8 @@ export class DocumentAdminComponent implements OnInit {
   constructor(private documentService: DocumentsService, private toastr: ToastrService, private popup: MatDialog) { }
 
   documents: Document[];
+  newArray:Document[];
+  sortedDocuments:Document[];
   dataSource:any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,10 +34,15 @@ export class DocumentAdminComponent implements OnInit {
   getAll(){
     this.documentService.getAllDocuments().subscribe((data)=>{
       this.documents = data;
-
-      this.dataSource = new MatTableDataSource(this.documents);
+      this.sortedDocuments = this.sortedDocumentsLatest(this.documents);
+      this.dataSource = new MatTableDataSource(this.sortedDocuments);
       this.dataSource.paginator = this.paginator;
     })
+  }
+
+  sortedDocumentsLatest(documents: Document[]): Document[]{
+    this.newArray = documents.sort((a,b)=> b.id - a.id);
+    return this.newArray;
   }
 
   filter(event: Event) {
@@ -41,8 +50,19 @@ export class DocumentAdminComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  openPopup(id: any){
-    const _popup = this.popup.open(DocumentCrudComponent,{
+  //function for open add popup component after close popup get all data again
+  openAddPopup(){
+    const _popup = this.popup.open(DocumentAddComponent,{
+      width: '500px',
+    });
+    _popup.afterClosed().subscribe(r => {
+      this.getAll();
+    });
+  }
+
+  //function for open modify popup component after close popup get all data again
+  openUpdatePopup(id: any){
+    const _popup = this.popup.open(DocumentUpdateComponent,{
       width: '500px',
       data:{
         id:id
@@ -53,12 +73,8 @@ export class DocumentAdminComponent implements OnInit {
     });
   }
 
-  EditDocument(id: any) {
-    this.openPopup(id);
-  }
-
   RemoveDocument(id: number){
-    alertify.confirm("Remove Document", "do you want remove this Document ?", () =>{
+    alertify.confirm("Supprimer le document", "voulez-vous supprimer ce document ?", () =>{
       this.documentService.deleteDocument(id).subscribe((res=>{
         this.toastr.success(res.message);
         this.getAll();

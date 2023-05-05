@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DocumentCrudComponent } from './document-crud.component';
+import { DocumentUpdateComponent } from './document-update.component';
 
-describe('DocumentCrudComponent', () => {
-  let component: DocumentCrudComponent;
-  let fixture: ComponentFixture<DocumentCrudComponent>;
+describe('DocumentUpdateComponent', () => {
+  let component: DocumentUpdateComponent;
+  let fixture: ComponentFixture<DocumentUpdateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DocumentCrudComponent ]
+      declarations: [ DocumentUpdateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DocumentCrudComponent);
+    fixture = TestBed.createComponent(DocumentUpdateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

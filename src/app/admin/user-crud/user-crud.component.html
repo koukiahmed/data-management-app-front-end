@@ -8,36 +8,36 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>Nom d'utilisateur</mat-label>
         <input matInput placeholder="Name" type="text" name="name" #name="ngModel" required ngModel>
-        <mat-error *ngIf="name.errors?.['required']">Name is required</mat-error>
+        <mat-error *ngIf="name.errors?.['required']">Nom d'utilisateur est obligatoire</mat-error>
       </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput placeholder="Email" type="email" name="email" #email="ngModel" ngModel required email>
-      <mat-error *ngIf="email.errors?.['required']">Email is required</mat-error>
-      <mat-error *ngIf="email.errors?.['email']">Email is invalid</mat-error>
+      <mat-error *ngIf="email.errors?.['required']">Email est obligatoire</mat-error>
+      <mat-error *ngIf="email.errors?.['email']">Email est invalid</mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Password</mat-label>
+      <mat-label>Mot de passe</mat-label>
       <input matInput placeholder="Password" type="text" name="password" #password="ngModel" required ngModel>
-      <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+      <mat-error *ngIf="password.errors?.['required']">Mot de passe est obligatoire</mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Role</mat-label>
       <input matInput placeholder="Role" type="text" name="role" #role="ngModel" required ngModel>
-      <mat-error *ngIf="role.errors?.['required']">Role is required</mat-error>
+      <mat-error *ngIf="role.errors?.['required']">Role est obligatoire</mat-error>
     </mat-form-field>
 
     </mat-card-content>
 
     <mat-card-footer>
       <div class="example-button-row" style="margin: 15px">
-        <button mat-raised-button color="primary" type="submit" [disabled]="userForm.form.invalid">Save</button>
-        | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
+        <button mat-raised-button color="primary" type="submit" [disabled]="userForm.form.invalid">Sauvegarder</button>
+        | <a (click)="closePopup()" mat-raised-button color="accent">Fermer</a>
       </div>
     </mat-card-footer>
   </mat-card>

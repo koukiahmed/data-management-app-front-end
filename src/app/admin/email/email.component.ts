@@ -25,12 +25,14 @@ export class EmailComponent implements OnInit {
     this.getAllUsers();
   }
 
+  //fucntion for get all users then display users names in list to select destination email
   getAllUsers(){
     this.userService.getAllUsers().subscribe((data)=>{
       this.users = data;
     })
   }
 
+  //function for sending email
   sendEmail(){
     this.spinner = false;
     this.emailService.sendEmail(this.emailObject).subscribe((res)=>{

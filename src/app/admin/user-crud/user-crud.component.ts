@@ -16,9 +16,10 @@ export class UserCrudComponent implements OnInit {
   constructor(private userService: UsersService, @Inject(MAT_DIALOG_DATA) public data: any, private popup: MatDialog, private toastr: ToastrService) { }
 
   editObject: User;
-  @ViewChild('userForm') form: NgForm;
+  @ViewChild('userForm') form: NgForm; //for get form html data
   editMode: boolean = false;
 
+  //function for get selected data with id then add data to form popup auto
   ngOnInit(): void {
     if (this.data.id != '' && this.data.id != null) {
       this.userService.getOneUser(this.data.id).subscribe((data)=>{
@@ -36,6 +37,7 @@ export class UserCrudComponent implements OnInit {
     }
   }
 
+  //fucntion for save data to table if edit mode false then add if edit mode is true then update it
   saveUser(userObject: User){
     if(!this.editMode){
       this.userService.addUser(userObject)
@@ -57,6 +59,7 @@ export class UserCrudComponent implements OnInit {
     }
   }
 
+  //fucntion for close popup
   closePopup() {
     this.popup.closeAll();
   }

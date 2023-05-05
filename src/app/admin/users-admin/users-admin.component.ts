@@ -18,7 +18,10 @@ export class UsersAdminComponent implements OnInit {
   constructor(private userService: UsersService, private toastr: ToastrService, private popup: MatDialog) { }
 
   users: User[];
+  newArray:User[];
+  sortedUsers:User[];
   dataSource:any;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   tableColumns: string[] = ['Id', 'Name', 'Email', 'Role','Actions'];
@@ -27,20 +30,30 @@ export class UsersAdminComponent implements OnInit {
     this.getAll();
   }
 
+  //function for get all users with sorted data
   getAll(){
     this.userService.getAllUsers().subscribe((data)=>{
       this.users = data;
-
-      this.dataSource = new MatTableDataSource(this.users);
+      this.sortedUsers = this.sortedUsersLatest(this.users);
+      this.dataSource = new MatTableDataSource(this.sortedUsers);
       this.dataSource.paginator = this.paginator;
     })
   }
 
+  //function for sort data
+  sortedUsersLatest(users: User[]): User[]{
+    this.newArray = users.sort((a,b)=> b.id - a.id);
+    return this.newArray;
+  }
+
+  //function for add filter to table
   filter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue;
   }
 
+
+  //function for open curd component and after close get data again
   openPopup(id: any){
     const _popup = this.popup.open(UserCrudComponent,{
       width: '500px',
@@ -55,12 +68,14 @@ export class UsersAdminComponent implements OnInit {
 
   }
 
+  //function for passe selected id to open modify popup
   EditUser(id: any) {
     this.openPopup(id);
   }
 
+  //function for delete selected data
   RemoveUser(id: number){
-    alertify.confirm("Remove User", "do you want remove this user ?", () =>{
+    alertify.confirm("Supprimer l'utilisateur", "voulez-vous supprimer cet utilisateur ?", () =>{
       this.userService.deleteUser(id).subscribe((res=>{
         this.toastr.success(res.message);
         this.getAll();

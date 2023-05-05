@@ -1,9 +1,9 @@
-<h2><mat-icon>domain</mat-icon> Actualities</h2>
+<h2><mat-icon>domain</mat-icon> Actualités</h2>
     <div class="mat-elevation-z8 container">
     <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="Title">
-        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <th mat-header-cell *matHeaderCellDef> Titre </th>
         <td mat-cell *matCellDef="let element" class="td">
           <mat-icon>notifications_none</mat-icon>
           {{element.title}}
@@ -11,9 +11,9 @@
 
       </ng-container>
       <ng-container matColumnDef="Info">
-        <th mat-header-cell *matHeaderCellDef> Info </th>
+        <th mat-header-cell *matHeaderCellDef> Informations </th>
         <td mat-cell *matCellDef="let element">
-          <a (click)="openBody(element.id)" mat-raised-button color="primary">info</a>
+          <a (click)="openBody(element.id)" mat-raised-button color="primary">Informations</a>
         </td>
       </ng-container>
 

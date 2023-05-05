@@ -18,6 +18,8 @@ export class FolderAdminComponent implements OnInit {
   constructor(private folderService: FoldersService, private toastr: ToastrService, private popup: MatDialog) { }
 
   folders: Folder[];
+  newArray:Folder[];
+  sortedFolders:Folder[];
   dataSource:any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,10 +32,15 @@ export class FolderAdminComponent implements OnInit {
   getAll(){
     this.folderService.getAllFolders().subscribe((data=>{
       this.folders = data;
-
-      this.dataSource = new MatTableDataSource(this.folders);
+      this.sortedFolders = this.sortedFoldersLatest(this.folders);
+      this.dataSource = new MatTableDataSource(this.sortedFolders);
       this.dataSource.paginator = this.paginator;
     }))
+  }
+
+  sortedFoldersLatest(folders: Folder[]): Folder[]{
+    this.newArray = folders.sort((a,b)=> b.id - a.id);
+    return this.newArray;
   }
 
   filter(event: Event) {
@@ -59,7 +66,7 @@ export class FolderAdminComponent implements OnInit {
   }
 
   RemoveFolder(id: number){
-    alertify.confirm("Remove Folder", "do you want remove this Folder ?", () =>{
+    alertify.confirm("Supprimer le dossier", "voulez-vous supprimer ce dossier ?", () =>{
       this.folderService.deleteFolder(id).subscribe((res=>{
         this.toastr.success(res.message);
         this.getAll();

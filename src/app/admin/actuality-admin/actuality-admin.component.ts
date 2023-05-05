@@ -18,6 +18,8 @@ export class ActualityAdminComponent implements OnInit {
   constructor(private actualityService: ActualitiesService, private toastr: ToastrService, private popup: MatDialog) { }
 
   actualities: Actuality[];
+  newArray:Actuality[];
+  sortedActualities:Actuality[];
   dataSource:any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,11 +32,15 @@ export class ActualityAdminComponent implements OnInit {
   getAll(){
     this.actualityService.getAllActualities().subscribe((data)=>{
       this.actualities = data;
-
+      this.sortedActualities = this.sortedActualitiesLatest(this.actualities);
       this.dataSource = new MatTableDataSource(this.actualities);
       this.dataSource.paginator = this.paginator;
     })
+  }
 
+  sortedActualitiesLatest(actualities: Actuality[]): Actuality[]{
+    this.newArray = actualities.sort((a,b)=> b.id - a.id);
+    return this.newArray;
   }
 
   filter(event: Event) {
@@ -59,7 +65,7 @@ export class ActualityAdminComponent implements OnInit {
   }
 
   RemoveActuality(id: number){
-    alertify.confirm("Remove Actuality", "do you want remove this Actuality ?", () =>{
+    alertify.confirm("Supprimer l'actualité", "voulez-vous supprimer cette actualité ?", () =>{
       this.actualityService.deleteActuality(id).subscribe((res=>{
         this.toastr.success(res.message);
         this.getAll();

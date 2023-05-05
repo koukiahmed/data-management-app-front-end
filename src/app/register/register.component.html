@@ -2,37 +2,37 @@
 
 <div class="header">
   <img src="../../assets/logo.png" alt="">
-  <h1>Attijari Leasing Platfome</h1>
+  <h1>Attijari Leasing Plateforme</h1>
 </div>
 
 <mat-card class="container">
   <mat-card-content>
       <form class="example-form" #registerForm="ngForm" (ngSubmit)="onRegister()">
           <mat-card-title>
-              <h2><mat-icon>apps</mat-icon> Registration</h2>
+              <h2><mat-icon>apps</mat-icon> Inscription</h2>
             </mat-card-title>
 
           <mat-form-field class="example-full-width">
-              <mat-label>Name</mat-label>
+              <mat-label>Nom d'utilisateur</mat-label>
               <input matInput type="text" placeholder="enter your name" [(ngModel)]="registerObject.name" name="name" #name="ngModel" required>
-              <mat-error *ngIf="name.errors?.['required']">name is required</mat-error>
+              <mat-error *ngIf="name.errors?.['required']">Nom d'utilisateur est obligatoire</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
               <input matInput type="email" placeholder="enter your email" [(ngModel)]="registerObject.email" name="email" #email="ngModel" required>
-              <mat-error *ngIf="email.errors?.['required']">email is required</mat-error>
+              <mat-error *ngIf="email.errors?.['required']">Email est obligatoire</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
+              <mat-label>Mot de passe</mat-label>
               <input matInput placeholder="enter your Password" type="password" [(ngModel)]="registerObject.password" name="password" #password="ngModel" required>
-              <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+              <mat-error *ngIf="password.errors?.['required']">Mot de pass est obligatoire</mat-error>
             </mat-form-field>
 
             <div>
-              <button mat-raised-button color="primary" style="margin: 10px;" type="submit" [disabled]="registerForm.form.invalid">Save</button>
-              <a routerLink="/login" mat-raised-button color="accent">Back to Login</a>
+              <button mat-raised-button color="primary" style="margin: 10px;" type="submit" [disabled]="registerForm.form.invalid">Sauvegarder</button>
+              <a routerLink="/login" mat-raised-button color="accent">Retour a la connexion</a>
             </div>
 
         </form>

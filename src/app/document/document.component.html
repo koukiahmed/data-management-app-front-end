@@ -3,7 +3,7 @@
 <table mat-table [dataSource]="dataSource">
 
   <ng-container matColumnDef="Title">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <th mat-header-cell *matHeaderCellDef> Titre </th>
     <td mat-cell *matCellDef="let element">
       <mat-icon>photo_filter</mat-icon>
       {{element.title}}
@@ -16,9 +16,9 @@
   </ng-container>
 
   <ng-container matColumnDef="Source">
-    <th mat-header-cell *matHeaderCellDef> Source </th>
+    <th mat-header-cell *matHeaderCellDef> Ressources </th>
     <td mat-cell *matCellDef="let element">
-      <a (click)="downloadDocument(element.id)" mat-button color="accent">Download</a>
+      <a (click)="downloadDocument(element.id)" mat-button color="accent">Télécharger</a>
     </td>
   </ng-container>
 

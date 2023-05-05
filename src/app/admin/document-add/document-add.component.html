@@ -1,0 +1,37 @@
+<form class="example-form" #documentAddForm="ngForm" (ngSubmit)="AddDocument(documentAddForm.value)">
+  <mat-card>
+    <mat-card-content>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Id</mat-label>
+        <input matInput name="id" #id="ngModel" type="number" ngModel readonly>
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nom dossier</mat-label>
+      <input matInput placeholder="Folder Name" type="text" name="folder" #folder="ngModel" required ngModel>
+      <mat-error *ngIf="folder.errors?.['required']">Nom dossier est obligatoire</mat-error>
+    </mat-form-field>
+
+    <div>
+      <input type="file" (change)="uploadDocument($event)" name="file" class="form-control" />
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div class="example-button-row" style="margin: 15px">
+      <button mat-raised-button color="primary" type="submit" [disabled]="documentAddForm.form.invalid">Sauvegarder</button>
+      | <a (click)="closePopup()" mat-raised-button color="accent">Fermer</a>
+    </div>
+  </mat-card-footer>
+
+</mat-card>
+</form>
+
+
+
+
+
+
+

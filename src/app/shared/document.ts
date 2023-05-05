@@ -1,6 +1,6 @@
 export class Document {
   id?: number;
-  title: string;
+  title?: string;
   type?: string;
   data?: any;
   folder: string;

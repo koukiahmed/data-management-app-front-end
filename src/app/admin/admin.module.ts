@@ -23,9 +23,10 @@ import { FoldersService } from '../services/folders.service';
 import { EmailService } from '../services/email.service';
 import { UserCrudComponent } from './user-crud/user-crud.component';
 import { ActualityCrudComponent } from './actuality-crud/actuality-crud.component';
-import { DocumentCrudComponent } from './document-crud/document-crud.component';
 import { FolderCrudComponent } from './folder-crud/folder-crud.component';
 import { LinksCrudComponent } from './links-crud/links-crud.component';
+import { DocumentUpdateComponent } from './document-update/document-update.component';
+import { DocumentAddComponent } from './document-add/document-add.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +40,10 @@ import { LinksCrudComponent } from './links-crud/links-crud.component';
     EmailComponent,
     UserCrudComponent,
     ActualityCrudComponent,
-    DocumentCrudComponent,
     FolderCrudComponent,
     LinksCrudComponent,
+    DocumentUpdateComponent,
+    DocumentAddComponent,
 
   ],
   imports: [

@@ -7,34 +7,34 @@
       <form class="example-form" #emailForm="ngForm" (ngSubmit)="sendEmail()">
 
         <mat-form-field appearance="fill" class="example-full-width">
-            <mat-label>From</mat-label>
+            <mat-label>De</mat-label>
             <input matInput type="email" placeholder="Your email" [(ngModel)]="emailObject.from" name="from" #from="ngModel" required>
-            <mat-error *ngIf="from.errors?.['required']">Email is required</mat-error>
+            <mat-error *ngIf="from.errors?.['required']">Email est obligatoire</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="example-full-width">
-          <mat-label>To</mat-label>
+          <mat-label>A</mat-label>
           <mat-select [(ngModel)]="emailObject.to" name="to" #to="ngModel" required>
-            <mat-option>-- None --</mat-option>
+            <mat-option>-- Aucun --</mat-option>
             <mat-option *ngFor="let element of users" [value]="element.email">{{element.name}}</mat-option>
           </mat-select>
-          <mat-error *ngIf="to.errors?.['required']">Email is required</mat-error>
+          <mat-error *ngIf="to.errors?.['required']">Email est obligatoire</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="example-full-width">
-            <mat-label>Subject</mat-label>
+            <mat-label>Object</mat-label>
             <input matInput placeholder="Subject" type="text" [(ngModel)]="emailObject.subject" #subject="ngModel" name="subject" required>
-            <mat-error *ngIf="subject.errors?.['required']">subject is required</mat-error>
+            <mat-error *ngIf="subject.errors?.['required']">Object est obligatoire</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="fill" class="example-full-width">
-            <mat-label>Body</mat-label>
+            <mat-label>Corp</mat-label>
             <textarea matInput placeholder="Body" type="text" [(ngModel)]="emailObject.body" #body="ngModel" name="body" required></textarea>
-            <mat-error *ngIf="body.errors?.['required']">Body is required</mat-error>
+            <mat-error *ngIf="body.errors?.['required']">Corp est obligatoire</mat-error>
           </mat-form-field>
 
           <div class="button">
-            <button mat-raised-button color="primary" type="submit" [disabled]="emailForm.form.invalid">Send</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="emailForm.form.invalid">Envoyer</button>
           </div>
 
       </form>

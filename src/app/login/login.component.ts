@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
         sessionStorage.setItem("message",data.message);
         sessionStorage.setItem("email",data.email);
         sessionStorage.setItem("role",data.role);
-        if(data.message==="Login succeed"){
+        if(data.message==="connexion réussie"){
           this.router.navigate(['home']);
         }
       },

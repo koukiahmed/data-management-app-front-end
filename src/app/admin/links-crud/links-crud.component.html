@@ -8,23 +8,23 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Title</mat-label>
+        <mat-label>Titre</mat-label>
         <input matInput placeholder="Title" type="text" name="title" #title="ngModel" required ngModel maxlength="45">
-        <mat-error *ngIf="title.errors?.['required']">Title is required</mat-error>
+        <mat-error *ngIf="title.errors?.['required']">Titre est obligatoire</mat-error>
       </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Path</mat-label>
+      <mat-label>Lien</mat-label>
       <input matInput placeholder="Path" type="text" name="path" #path="ngModel" required ngModel>
-      <mat-error *ngIf="path.errors?.['required']">Path is required</mat-error>
+      <mat-error *ngIf="path.errors?.['required']">Lien est obligatoire</mat-error>
     </mat-form-field>
 
   </mat-card-content>
 
   <mat-card-footer>
     <div class="example-button-row" style="margin: 15px">
-      <button mat-raised-button color="primary" type="submit" [disabled]="linkForm.form.invalid">Save</button>
-      | <a (click)="closePopup()" mat-raised-button color="accent">Close</a>
+      <button mat-raised-button color="primary" type="submit" [disabled]="linkForm.form.invalid">Sauvegarder</button>
+      | <a (click)="closePopup()" mat-raised-button color="accent">Fermer</a>
     </div>
   </mat-card-footer>
 

@@ -18,6 +18,8 @@ export class LinksAdminComponent implements OnInit {
   constructor(private linkService: LinksService, private toastr: ToastrService, private popup: MatDialog) { }
 
   links: Link[];
+  newArray:Link[];
+  sortedLinks:Link[];
   dataSource:any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -30,11 +32,15 @@ export class LinksAdminComponent implements OnInit {
   getAll(){
     this.linkService.getAllLinks().subscribe((data)=>{
       this.links = data;
-
-      this.dataSource = new MatTableDataSource(this.links);
+      this.sortedLinks = this.sortedLinkLatest(this.links);
+      this.dataSource = new MatTableDataSource(this.sortedLinks);
       this.dataSource.paginator = this.paginator;
     })
+  }
 
+  sortedLinkLatest(links: Link[]): Link[]{
+    this.newArray = links.sort((a,b)=> b.id - a.id);
+    return this.newArray;
   }
 
   filter(event: Event) {
@@ -60,7 +66,7 @@ export class LinksAdminComponent implements OnInit {
   }
 
   RemoveLink(id: number){
-    alertify.confirm("Remove Link", "do you want remove this Link ?", () =>{
+    alertify.confirm("Supprimer le lien", "voulez-vous supprimer ce lien ?", () =>{
       this.linkService.deleteLink(id).subscribe((res=>{
         this.toastr.success(res.message);
         this.getAll();
